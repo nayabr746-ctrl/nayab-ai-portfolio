@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6f2">
+  <title>Syeda Nayab Zahra Rizvi — AI Engineer & Technology Builder</title>
+  <meta name="description" content="Syeda Nayab Zahra Rizvi explores AI engineering, intelligent automation, and technology-led business innovation from Multan, Pakistan.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Syeda Nayab Zahra Rizvi — AI Engineer & Technology Builder">
+  <meta property="og:description" content="Building intelligent systems and turning meaningful ideas into practical technology.">
+  <meta property="og:image" content="[EDIT: Add a public URL for your social preview image]">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Syeda Nayab Zahra Rizvi — AI Engineer & Technology Builder">
+  <meta name="twitter:description" content="AI engineering, intelligent automation, and technology-led innovation.">
+  <meta name="twitter:image" content="[EDIT: Add a public URL for your social preview image]">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Design tokens */
+    :root {
+      color-scheme: light;
+      --bg: #f3f6fb; --surface: #ffffff; --surface-2: #e9eff7;
+      --text: #111d35; --muted: #59677f; --line: #dbe3ef;
+      --accent: #315fe8; --accent-2: #dce6ff; --accent-ink: #ffffff;
+      --nav: rgba(243,246,251,.88); --shadow: 0 18px 55px rgba(25,48,91,.11);
+      --radius: 20px; --radius-sm: 12px;
+      --space-1: .5rem; --space-2: 1rem; --space-3: 1.5rem;
+      --space-4: 2rem; --space-5: 3rem; --space-6: 5rem;
+      --display: "Manrope", sans-serif; --body: "DM Sans", sans-serif; --mono: "DM Mono", monospace;
+      --max: 1160px;
+    }
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #0c1425; --surface: #121f36; --surface-2: #1b2b48;
+      --text: #eef3ff; --muted: #aab8d3; --line: #2b3c5d;
+      --accent: #82a5ff; --accent-2: #263d70; --accent-ink: #09142a;
+      --nav: rgba(12,20,37,.9); --shadow: 0 18px 55px rgba(0,0,0,.3);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        color-scheme: dark;
+        --bg: #0c1425; --surface: #121f36; --surface-2: #1b2b48;
+        --text: #eef3ff; --muted: #aab8d3; --line: #2b3c5d;
+        --accent: #82a5ff; --accent-2: #263d70; --accent-ink: #09142a;
+        --nav: rgba(12,20,37,.9); --shadow: 0 18px 55px rgba(0,0,0,.3);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.65 var(--body); }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 3px solid var(--accent); outline-offset: 3px;
+    }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow { font: 500 .75rem var(--mono); text-transform: uppercase; letter-spacing: .13em; color: var(--accent); }
+    .section { padding: 64px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 38px; }
+    h1,h2,h3,p { margin-top: 0; }
+    h1,h2,h3 { font-family: var(--display); letter-spacing: -.045em; line-height: 1.08; }
+    h2 { font-size: clamp(2.1rem, 4vw, 3.4rem); margin-bottom: 12px; }
+    h3 { font-size: 1.25rem; margin-bottom: 10px; }
+    .section-intro { max-width: 590px; color: var(--muted); margin: 0; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 10px; min-height: 48px; padding: 0 20px; border: 1px solid var(--line); border-radius: 999px; font-weight: 700; transition: transform .2s, background .2s, border-color .2s; cursor: pointer; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+    .btn-quiet { background: var(--surface); }
+    .topbar { position: sticky; top: 0; z-index: 20; background: var(--nav); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font: 800 .95rem var(--display); letter-spacing: -.04em; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 24px; color: var(--muted); font-size: .88rem; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .theme-toggle, .menu-toggle { width: 42px; height: 42px; border: 1px solid var(--line); background: var(--surface); color: var(--text); border-radius: 50%; cursor: pointer; }
+    .menu-toggle { display: none; font-size: 1.2rem; }
+    .hero { padding: 66px 0 74px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 38px; align-items: center; }
+    .hero h1 { font-size: clamp(3.1rem, 7vw, 6.6rem); max-width: 780px; margin: 18px 0 22px; }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero-copy { max-width: 600px; color: var(--muted); font-size: 1.1rem; }
+    .hero-copy strong { color: var(--text); font-weight: 600; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 38px; color: var(--muted); font: .75rem var(--mono); text-transform: uppercase; letter-spacing: .06em; }
+    .visual { min-height: 470px; position: relative; border: 1px solid var(--line); border-radius: 28px; background: var(--surface); box-shadow: var(--shadow); overflow: hidden; display: grid; place-items: center; }
+    .visual::before { content: ""; position: absolute; inset: 12% 12%; border: 1px dashed var(--line); border-radius: 50%; }
+    .visual-grid { position: absolute; inset: 0; opacity: .45; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg,var(--line) 1px, transparent 1px); background-size: 36px 36px; mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent); }
+    .orbit { position: absolute; width: 240px; height: 240px; border: 1px solid var(--accent); border-radius: 50%; animation: rotate 22s linear infinite; }
+    .orbit::before,.orbit::after { content: ""; position: absolute; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); top: 20px; left: 40px; box-shadow: 0 0 0 7px var(--accent-2); }
+    .orbit::after { top: auto; left: auto; right: 20px; bottom: 50px; width: 8px; height: 8px; }
+    .core { position: relative; width: 150px; height: 150px; display: grid; place-items: center; border-radius: 34px; background: var(--accent); color: var(--accent-ink); transform: rotate(-8deg); box-shadow: 0 20px 55px rgba(20,107,85,.25); }
+    .core span { font: 800 2.2rem var(--display); transform: rotate(8deg); }
+    .visual-label { position: absolute; left: 24px; bottom: 22px; font: .72rem var(--mono); color: var(--muted); }
+    .visual-tag { position: absolute; right: 22px; top: 22px; padding: 8px 11px; border: 1px solid var(--line); border-radius: 99px; color: var(--accent); background: var(--surface); font: .68rem var(--mono); }
+    body { background-image: radial-gradient(ellipse at 8% 4%, rgba(49,95,232,.10), transparent 28%), radial-gradient(ellipse at 94% 26%, rgba(82,145,225,.09), transparent 24%); background-attachment: fixed; }
+    .hero { background: linear-gradient(115deg, rgba(226,235,255,.62), rgba(243,246,251,.15) 58%, rgba(216,229,255,.48)); }
+    [data-theme="dark"] .hero { background: linear-gradient(115deg, rgba(36,61,111,.35), rgba(12,20,37,.1) 58%, rgba(34,57,103,.28)); }
+    .visual { background: #13213b url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=85') center/cover; }
+    .visual::after { content:""; position:absolute; inset:0; background:linear-gradient(135deg,rgba(9,20,43,.12),rgba(9,20,43,.72)); }
+    .visual-grid,.orbit,.core,.visual-label,.visual-tag { z-index:1; }
+    .visual-grid { opacity:.22; }
+    .core { background:rgba(49,95,232,.88); border:1px solid rgba(255,255,255,.45); backdrop-filter:blur(10px); }
+    .visual-tag { background:rgba(12,24,48,.72); color:#fff; border-color:rgba(255,255,255,.28); }
+    .visual-label { color:#fff; }
+    .photo-placeholder { position:relative; overflow:hidden; display:block; padding:0; min-height:390px; background:#142442 url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85') center/cover; }
+    .photo-placeholder::before { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 38%,rgba(8,20,43,.84)); }
+    .photo-placeholder > div { position:absolute; left:24px; right:24px; bottom:24px; z-index:1; color:#fff; text-align:left; }
+    .photo-placeholder strong { color:#fff; font-size:1.35rem; }
+    .photo-placeholder span { font-size:.8rem; color:#d9e4ff; }
+    .photo-mark { width:54px; height:54px; margin:0 0 12px; border-color:rgba(255,255,255,.7); color:#fff; background:rgba(49,95,232,.65); }
+    .section:nth-of-type(even) { background:rgba(224,233,248,.26); }
+    [data-theme="dark"] .section:nth-of-type(even) { background:rgba(30,47,78,.18); }
+    .section-head { margin-bottom:30px; }
+    .panel,.card { box-shadow:0 8px 28px rgba(23,48,91,.045); }
+    @media (max-width:680px) { .hero { padding:48px 0 54px; } .visual { min-height:330px; } .photo-placeholder { min-height:320px; } .section { padding:60px 0; } }
+    .profile-strip { background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .profile-strip-grid { display:grid; grid-template-columns:repeat(3,1fr); }
+    .profile-strip-grid > div { padding:22px 26px; border-right:1px solid var(--line); display:flex; flex-direction:column; gap:3px; }
+    .profile-strip-grid > div:first-child { padding-left:0; }
+    .profile-strip-grid > div:last-child { border-right:0; }
+    .strip-kicker { color:var(--accent); font: .7rem var(--mono); letter-spacing:.12em; }
+    .profile-strip strong { font:700 1rem var(--display); }
+    .profile-strip small { color:var(--muted); font-size:.82rem; }
+    .photo-placeholder::before { background:linear-gradient(180deg,rgba(9,20,43,.05),rgba(9,20,43,.78)); }
+    .photo-placeholder > div { position:relative; z-index:1; }
+    .section-head { align-items:flex-end; }
+    .section-head h2 { max-width:700px; }
+    .card,.panel { min-height:100%; }
+    .visual { min-height:420px; }
+    @media(max-width:680px) { .profile-strip-grid { grid-template-columns:1fr; } .profile-strip-grid > div,.profile-strip-grid > div:first-child { padding:16px 0; border-right:0; border-bottom:1px solid var(--line); } .profile-strip-grid > div:last-child { border-bottom:0; } .visual { min-height:300px; } }
+    @keyframes rotate { to { transform: rotate(360deg); } }
+    .about-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 60px; align-items: start; }
+    .photo-placeholder { min-height: 390px; border-radius: var(--radius); background: #142442 url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1100&q=85') center/cover; border: 1px solid var(--line); display: grid; place-items: center; text-align: center; padding: 30px; color: #fff; box-shadow: var(--shadow); }
+    .photo-placeholder strong { display: block; color: #fff; font: 700 1.35rem var(--display); }
+    .photo-mark { width: 90px; height: 90px; margin: 0 auto 18px; border: 1px solid rgba(255,255,255,.75); border-radius: 50%; display: grid; place-items: center; color: #fff; background:rgba(49,95,232,.65); font: 700 1.5rem var(--display); backdrop-filter:blur(8px); }
+    .about-text { color: var(--muted); font-size: 1.05rem; }
+    .facts { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 28px; }
+    .fact { padding: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); }
+    .fact strong { display: block; font: 700 1rem var(--display); color: var(--text); }
+    .fact span { color: var(--muted); font-size: .78rem; }
+    .two-col { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .panel,.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; transition: transform .2s, box-shadow .2s, border-color .2s; }
+    .panel:hover,.card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--accent); }
+    .panel .number { font: .75rem var(--mono); color: var(--accent); }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .tag { padding: 7px 10px; border-radius: 99px; background: var(--surface-2); color: var(--muted); font: .72rem var(--mono); }
+    .venture-grid,.project-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+    .card-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 22px; }
+    .status { color: var(--accent); font: .68rem var(--mono); text-transform: uppercase; }
+    .card p { color: var(--muted); margin-bottom: 18px; }
+    .card-links { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 22px; font-size: .82rem; font-weight: 700; color: var(--accent); }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+    .filter { border: 1px solid var(--line); background: var(--surface); color: var(--muted); border-radius: 99px; padding: 8px 14px; cursor: pointer; }
+    .filter[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+    .project-card[hidden] { display: none; }
+    .project-type { color: var(--accent); font: .7rem var(--mono); text-transform: uppercase; }
+    .stack-groups { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; }
+    .stack-group { padding: 20px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); }
+    .stack-group h3 { font-size: .95rem; letter-spacing: -.02em; }
+    .stack-group p { color: var(--muted); font-size: .85rem; margin: 0; }
+    .timeline { max-width: 760px; margin-left: 10px; border-left: 1px solid var(--line); }
+    .milestone { position: relative; padding: 0 0 32px 30px; }
+    .milestone::before { content: ""; position: absolute; left: -6px; top: 5px; width: 11px; height: 11px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--accent-2); }
+    .milestone time { color: var(--accent); font: .7rem var(--mono); }
+    .milestone p { color: var(--muted); margin-bottom: 0; }
+    .quote-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    blockquote { margin: 0; color: var(--muted); }
+    blockquote footer { margin-top: 22px; color: var(--text); font: 600 .82rem var(--body); }
+    .service-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .service-card ul { padding-left: 18px; color: var(--muted); font-size: .9rem; }
+    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; }
+    .contact-info p { color: var(--muted); }
+    .socials { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px; color: var(--accent); font-weight: 700; font-size: .9rem; }
+    form { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field.full { grid-column: 1/-1; }
+    label { font-size: .82rem; font-weight: 700; }
+    input,textarea,select { width: 100%; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--text); padding: 12px 13px; }
+    textarea { min-height: 130px; resize: vertical; }
+    .form-note { grid-column: 1/-1; color: var(--muted); font-size: .78rem; margin: 0; }
+    .form-status { grid-column: 1/-1; color: var(--accent); font-size: .85rem; }
+    .footer { padding: 28px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .back-top { color: var(--accent); font-weight: 700; }
+    .reveal { opacity: 1; transform: none; }
+    .js-motion .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .js-motion .reveal.visible { opacity: 1; transform: none; }
+    @media (max-width: 900px) {
+      .hero-grid,.about-grid,.contact-grid { grid-template-columns: 1fr; }
+      .visual { min-height: 360px; }
+      .stack-groups { grid-template-columns: repeat(3,1fr); }
+      .service-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { gap: 14px; }
+    }
+    @media (max-width: 680px) {
+      .container { width: min(100% - 32px, var(--max)); }
+      .section { padding: 54px 0; }
+      .hero { padding: 48px 0 54px; }
+      .hero h1 { font-size: clamp(2.8rem, 14vw, 4.5rem); }
+      .section-head { display: block; }
+      .section-head .section-intro { margin-top: 12px; }
+      .nav { min-height: 66px; }
+      .menu-toggle { display: inline-grid; place-items: center; }
+      .nav-links { display: none; position: absolute; top: 66px; left: 0; right: 0; padding: 18px 24px 24px; background: var(--surface); border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 8px 0; }
+      .nav-actions .nav-cta { display: none; }
+      .two-col,.venture-grid,.project-grid,.quote-grid,.service-grid { grid-template-columns: 1fr; }
+      .facts { grid-template-columns: 1fr; }
+      .stack-groups { grid-template-columns: repeat(2,1fr); }
+      .panel,.card { padding: 22px; }
+      form { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Syeda Nayab Zahra Rizvi",
+    "jobTitle":"AI Engineer & Technology Entrepreneur",
+    "address":{"@type":"PostalAddress","addressLocality":"Multan","addressCountry":"PK"},
+    "description":"Exploring AI engineering, intelligent automation, and practical technology innovation.",
+    "url":"[EDIT: Add your published website URL]",
+    "sameAs":["[EDIT: Add your LinkedIn URL]","[EDIT: Add your GitHub URL]"]
+  }
+  </script>
+</head>
+<body>
+  <!-- 1. Navigation -->
+  <header class="topbar">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Syeda Nayab Zahra Rizvi home">NAYAB<span>.</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a><a href="#expertise">Expertise</a><a href="#ventures">Ventures</a>
+        <a href="#projects">Projects</a><a href="#experience">Journey</a><a href="#principles">Approach</a><a href="#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Switch color theme" title="Switch color theme">◐</button>
+        <a class="btn btn-primary nav-cta" href="#contact">Let's connect <span aria-hidden="true">↗</span></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 2. Hero -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">AI ENGINEERING&nbsp; · &nbsp;ENTREPRENEURSHIP&nbsp; · &nbsp;INNOVATION</div>
+          <h1>Building ideas into <em>intelligent</em><br> systems.</h1>
+          <p class="hero-copy"><strong>I'm Syeda Nayab Zahra Rizvi.</strong> I am developing my foundation in AI and software engineering while exploring how intelligent technology can solve meaningful business and everyday problems.</p>
+          <p class="hero-copy">My approach is problem-first: understand the challenge, design a thoughtful system, and keep learning through practical projects.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-quiet" href="#contact">Start a conversation</a>
+          </div>
+          <div class="hero-meta"><span>Multan, Pakistan</span><span>AI × Business</span><span>Problem-first mindset</span></div>
+        </div>
+        <div class="visual" role="img" aria-label="Abstract animated orbit around the letters NZ, representing connected AI systems">
+          <div class="visual-grid"></div><div class="orbit"></div>
+          <div class="core"><span>NZ</span></div>
+          <span class="visual-tag">SYSTEMS IN MOTION</span>
+          <span class="visual-label">01 / IDEAS → SYSTEMS → IMPACT</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick profile strip -->
+    <section class="profile-strip" aria-label="Profile highlights">
+      <div class="container profile-strip-grid">
+        <div><span class="strip-kicker">01</span><strong>AI & intelligent systems</strong><small>Learning to build useful technology</small></div>
+        <div><span class="strip-kicker">02</span><strong>Business problem-solving</strong><small>Starting with people and real needs</small></div>
+        <div><span class="strip-kicker">03</span><strong>Continuous learning</strong><small>Turning concepts into practical projects</small></div>
+      </div>
+    </section>
+
+    <!-- 3. About -->
+    <section class="section" id="about">
+      <div class="container about-grid reveal">
+        <div class="photo-placeholder" role="img" aria-label="Technology workspace representing AI research and creative problem solving">
+          <div><div class="photo-mark">NZ</div><strong>Curiosity. Clarity. Creation.</strong><span>Exploring what intelligent technology can make possible.</span></div>
+        </div>
+        <div>
+          <div class="eyebrow">A LITTLE ABOUT ME</div>
+          <h2>Engineering with a reason.</h2>
+          <p class="about-text">I’m interested in how technology can make businesses and everyday processes work smarter. My work and learning center on AI, software engineering, intelligent automation, and emerging technologies—with a problem-first mindset.</p>
+          <p class="about-text">I believe the strongest solutions come from understanding the real challenge before choosing the technology. The goal is not to build something complicated; it is to build something useful, reliable, and thoughtfully designed.</p>
+          <div class="facts">
+            <div class="fact"><strong>Multan</strong><span>Pakistan · Based here</span></div>
+            <div class="fact"><strong>AI + Business</strong><span>Areas of focus</span></div>
+            <div class="fact"><strong>[EDIT]</strong><span>Projects / products shipped</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Expertise -->
+    <section class="section" id="expertise">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">WHAT I WORK TOWARD</div><h2>Two sides. One direction.</h2></div><p class="section-intro">Strong technology creates value when it is connected to a clear product vision and a real-world need.</p></div>
+        <div class="two-col">
+          <article class="panel reveal"><span class="number">01 / AI ENGINEERING</span><h3>Designing intelligent systems</h3><p class="about-text">Exploring the building blocks of practical AI—from language-model applications to data-driven prediction and automation.</p><div class="tag-list"><span class="tag">LLM applications</span><span class="tag">AI agents</span><span class="tag">RAG</span><span class="tag">Machine learning</span><span class="tag">MLOps [EDIT]</span><span class="tag">Data pipelines</span><span class="tag">Evaluation</span></div></article>
+          <article class="panel reveal"><span class="number">02 / ENTREPRENEURSHIP</span><h3>Turning solutions into products</h3><p class="about-text">Thinking beyond the code: identifying opportunities, validating problems, shaping products, and communicating their value.</p><div class="tag-list"><span class="tag">Problem discovery</span><span class="tag">Product strategy</span><span class="tag">Go-to-market</span><span class="tag">AI transformation</span><span class="tag">Business analysis</span><span class="tag">Team building [EDIT]</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Ventures -->
+    <section class="section" id="ventures">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">BUILDING WITH PURPOSE</div><h2>Ventures & ideas.</h2></div><p class="section-intro">A space for initiatives, experiments, and products as they take shape. Replace these cards with confirmed venture details.</p></div>
+        <div class="venture-grid" id="ventureGrid"></div>
+      </div>
+    </section>
+
+    <!-- 6. Featured projects -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">SELECTED EXPLORATIONS</div><h2>Projects in progress.</h2></div><p class="section-intro">Selected explorations across healthcare, predictive systems, and intelligent products.</p></div>
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button class="filter" data-filter="all" aria-pressed="true">All</button><button class="filter" data-filter="agents" aria-pressed="false">Agents</button><button class="filter" data-filter="rag" aria-pressed="false">RAG</button><button class="filter" data-filter="ml" aria-pressed="false">ML</button><button class="filter" data-filter="products" aria-pressed="false">Products</button>
+        </div>
+        <div class="project-grid" id="projectGrid"></div>
+      </div>
+    </section>
+
+    <!-- 7. Tech stack -->
+    <section class="section" id="stack">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">TOOLS & TECHNOLOGIES</div><h2>The working toolkit.</h2></div><p class="section-intro">A growing toolkit. Keep only the technologies you can confidently discuss and use.</p></div>
+        <div class="stack-groups">
+          <div class="stack-group"><h3>Languages</h3><p>Python · C++ · JavaScript [EDIT]</p></div>
+          <div class="stack-group"><h3>AI & LLM</h3><p>Machine Learning · LLMs · RAG [EDIT]</p></div>
+          <div class="stack-group"><h3>Frameworks</h3><p>React · FastAPI · LangChain [EDIT]</p></div>
+          <div class="stack-group"><h3>Cloud & MLOps</h3><p>Docker · Git · Cloud tools [EDIT]</p></div>
+          <div class="stack-group"><h3>Data</h3><p>SQL · Pandas · Vector databases [EDIT]</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Experience timeline -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">THE JOURNEY</div><h2>Learning. Making. Improving.</h2></div><p class="section-intro">A transparent timeline of education, practical work, and milestones.</p></div>
+        <div class="timeline reveal">
+          <article class="milestone"><time>[EDIT: YEAR – PRESENT]</time><h3>AI Engineering & independent projects</h3><p>Exploring AI systems, software development, and practical problem-solving. Add specific work, tools, and outcomes here.</p></article>
+          <article class="milestone"><time>[EDIT: YEAR]</time><h3>[EDIT: Education / qualification]</h3><p>[EDIT: Add institution, program, and relevant learning milestones.]</p></article>
+          <article class="milestone"><time>[EDIT: YEAR]</time><h3>[EDIT: First project or milestone]</h3><p>[EDIT: Describe what you built, your role, and what you learned.]</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Speaking and writing -->
+    <section class="section" id="writing">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">IDEAS IN PUBLIC</div><h2>Speaking & writing.</h2></div><p class="section-intro">Talks, articles, notes, and conversations worth sharing.</p></div>
+        <div class="card reveal"><span class="status">[EDIT: ADD WHEN AVAILABLE]</span><h3>Articles, talks, and technical notes</h3><p>Add published articles, presentations, podcasts, or event appearances here. Include the date and a public link for each item.</p></div>
+      </div>
+    </section>
+
+    <!-- 10. Working principles -->
+    <section class="section" id="principles">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">HOW I APPROACH PROBLEMS</div><h2>Good technology starts with good questions.</h2></div><p class="section-intro">Before choosing a model, tool, or platform, understand the people, process, and outcome that matter.</p></div>
+        <div class="service-grid">
+          <article class="card service-card"><span class="number">01 / UNDERSTAND</span><h3>Find the real problem</h3><p class="about-text">Who experiences the problem? When does it happen? What does it cost in time, effort, or opportunity?</p></article>
+          <article class="card service-card"><span class="number">02 / DESIGN</span><h3>Map the system</h3><p class="about-text">Study inputs, workflows, users, constraints, and data before deciding where technology can help.</p></article>
+          <article class="card service-card"><span class="number">03 / IMPROVE</span><h3>Measure what matters</h3><p class="about-text">Test ideas, learn from feedback, and evaluate whether a solution is useful, reliable, and responsible.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Services -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">AREAS I AM EXPLORING</div><h2>Ideas worth exploring.</h2></div><p class="section-intro">I am interested in learning, researching, and developing ideas in these areas as my technical skills grow.</p></div>
+        <div class="service-grid">
+          <article class="card service-card"><span class="number">01</span><h3>AI Product Exploration</h3><p class="about-text">Turn a problem or early idea into a clearer technical direction.</p><ul><li>Problem and user discovery</li><li>Use-case mapping</li><li>Prototype planning</li></ul><a class="card-links" href="#contact">Discuss an idea ↗</a></article>
+          <article class="card service-card"><span class="number">02</span><h3>Intelligent Automation</h3><p class="about-text">Identify workflows where thoughtful automation could reduce repetitive work.</p><ul><li>Workflow analysis</li><li>Automation opportunities</li><li>Solution concept</li></ul><a class="card-links" href="#contact">Explore a workflow ↗</a></article>
+          <article class="card service-card"><span class="number">03</span><h3>AI & Technology Research</h3><p class="about-text">Research tools and approaches to help teams make informed technical decisions.</p><ul><li>Technology research</li><li>Solution comparison</li><li>Technical learning support</li></ul><a class="card-links" href="#contact">Start a conversation ↗</a></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. Contact -->
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info"><div class="eyebrow">GET IN TOUCH</div><h2>Have a meaningful problem to solve?</h2><p>I'm open to thoughtful conversations, learning opportunities, and collaborations around AI and technology.</p><p><strong>Email</strong><br><span>Add your professional email address here</span></p>
+          <div class="socials"><a href="[EDIT: LinkedIn URL]" aria-label="LinkedIn profile">LinkedIn ↗</a><a href="[EDIT: GitHub URL]" aria-label="GitHub profile">GitHub ↗</a><a href="[EDIT: X profile URL]" aria-label="X profile">X ↗</a></div>
+          <p class="about-text">Scheduling: <a href="[EDIT: Scheduling link]">[EDIT: Add booking link]</a></p>
+        </div>
+        <form id="contactForm">
+          <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="org">Organization</label><input id="org" name="org" autocomplete="organization"></div>
+          <div class="field"><label for="kind">Inquiry type</label><select id="kind" name="kind"><option>Collaboration</option><option>Project discussion</option><option>Speaking</option><option>Other</option></select></div>
+          <div class="field full"><label for="message">How can we work together?</label><textarea id="message" name="message" required></textarea></div>
+          <div class="field full"><button class="btn btn-primary" type="submit">Prepare email <span aria-hidden="true">↗</span></button></div>
+          <p class="form-note">This form opens your email app with a pre-filled message. It does not send or store information on this website.</p>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- 13. Footer -->
+  <footer class="footer"><div class="container footer-inner"><span>© <span id="year"></span> Syeda Nayab Zahra Rizvi. Built with intention.</span><a class="back-top" href="#home">Back to top ↑</a></div></footer>
+
+  <script>
+    /* Editable project and venture content: update this data first. */
+    const ventures = [
+      { name: "Problem-Driven Innovation", role: "Independent exploration", status: "Exploring", description: "Identifying real-world challenges and shaping practical, technology-led solutions.", detail: "AI · Software · Innovation" },
+      { name: "Intelligent Automation", role: "Concept development", status: "Building", description: "Exploring how intelligent agents and automated workflows can make everyday processes more efficient.", detail: "Agents · Workflows · Systems" }
+    ];
+    const projects = [
+      { name: "AI in Healthcare System", category: "products", type: "Healthcare AI", problem: "Healthcare teams need timely, useful information to support better decisions.", approach: "[EDIT: Describe your system, intended users, data, safety boundaries, and your contribution.]", stack: ["AI", "Healthcare", "[EDIT: Tech stack]"], outcome: "[EDIT: Add a verified result or label as prototype]", links: [{ label: "Case study [EDIT]", url: "#" }] },
+      { name: "Predictive Maintenance System", category: "ml", type: "Predictive modeling", problem: "Unexpected equipment issues can disrupt operations and increase maintenance costs.", approach: "[EDIT: Explain the data, prediction approach, model, and evaluation method.]", stack: ["Machine Learning", "Prediction", "[EDIT: Tech stack]"], outcome: "[EDIT: Add a measured result, or state 'Prototype']", links: [{ label: "GitHub [EDIT]", url: "#" }] }
+    ];
+    const ventureGrid = document.getElementById("ventureGrid");
+    const projectGrid = document.getElementById("projectGrid");
+    const esc = value => String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+    ventureGrid.innerHTML = ventures.map(item => `
+      <article class="card reveal"><div class="card-top"><span class="status">${esc(item.status)}</span><span class="number">${esc(item.detail)}</span></div>
+      <h3>${esc(item.name)}</h3><p>${esc(item.description)}</p><div class="card-links"><span>${esc(item.role)}</span></div></article>`).join("");
+    projectGrid.innerHTML = projects.map(item => `
+      <article class="card project-card reveal" data-category="${esc(item.category)}">
+        <div class="card-top"><span class="project-type">${esc(item.type)}</span><span class="number">PROJECT / 0${projects.indexOf(item)+1}</span></div>
+        <h3>${esc(item.name)}</h3><p><strong>Problem:</strong> ${esc(item.problem)}</p><p><strong>Approach:</strong> ${esc(item.approach)}</p>
+        <div class="tag-list">${item.stack.map(tag => `<span class="tag">${esc(tag)}</span>`).join("")}</div>
+        <p style="margin-top:18px"><strong>Outcome:</strong> ${esc(item.outcome)}</p>
+        <div class="card-links">${item.links.map(link => `<a href="${esc(link.url)}">${esc(link.label)} ↗</a>`).join("")}</div>
+      </article>`).join("");
+
+    /* Mobile navigation */
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    menuToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+      menuToggle.textContent = open ? "×" : "☰";
+    });
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      navLinks.classList.remove("open"); menuToggle.setAttribute("aria-expanded","false");
+      menuToggle.setAttribute("aria-label","Open navigation menu"); menuToggle.textContent = "☰";
+    }));
+
+    /* Theme: manual choice overrides system preference and persists locally. */
+    const themeToggle = document.getElementById("themeToggle");
+    const savedTheme = localStorage.getItem("nayab-theme");
+    if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+    themeToggle.addEventListener("click", () => {
+      const current = document.documentElement.dataset.theme ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      const next = current === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem("nayab-theme", next);
+      themeToggle.setAttribute("aria-label", next === "dark" ? "Switch to light mode" : "Switch to dark mode");
+    });
+
+    /* Accessible project filters */
+    document.querySelectorAll(".filter").forEach(button => button.addEventListener("click", () => {
+      document.querySelectorAll(".filter").forEach(item => item.setAttribute("aria-pressed", String(item === button)));
+      const filter = button.dataset.filter;
+      document.querySelectorAll(".project-card").forEach(card => {
+        card.hidden = filter !== "all" && card.dataset.category !== filter;
+      });
+    }));
+
+    /* Reduced-motion-aware reveal effect */
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+      document.documentElement.classList.add("js-motion");
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); }
+      }), { threshold: .12 });
+      document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+    }
+
+    /* Contact form with mailto fallback */
+    document.getElementById("contactForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      if (!form.reportValidity()) return;
+      const data = new FormData(form);
+      const recipient = "your.email@example.com"; // [EDIT: Replace with your real email]
+      const subject = encodeURIComponent(`Website inquiry: ${data.get("kind")}`);
+      const body = encodeURIComponent(
+        `Name: ${data.get("name")}\nEmail: ${data.get("email")}\nOrganization: ${data.get("org")}\nInquiry: ${data.get("kind")}\n\n${data.get("message")}`
+      );
+      document.getElementById("formStatus").textContent = "Your email app should open with the message ready to review.";
+      window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
